@@ -10,7 +10,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 url = "http://finance.daum.net/"
 res = req.urlopen(url).read()
 
-soup = BeautifulSoup(res, "html.parser")
+soup = BeautifulSoup(res, "lxml")
 
 top = soup.select("ul#topMyListNo1 > li")
 
