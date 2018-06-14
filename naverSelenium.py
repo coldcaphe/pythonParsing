@@ -16,24 +16,24 @@ class NcafeWriteAtt:
         self.driver.implicitly_wait(5)
 
         #네이버 카페 로그린 && 출석 체크
-        def writeAttendCheck(self):
-            self.driver.get('https://nid.naver.com/nidlogin.login')
-            self.driver.find_element_by_name('id').send_keys('')
-            self.driver.find_element_by_name('pw').send_keys('')
-            self.driver.find_element_by_xpath('//*[@id="frmNIDLogin"]/fieldset/input').click()
-            self.driver.implicitly_wait(30)
-            self.driver.get('http://cafe.naver.com/paramsx?iframe_url=/AttendanceView.nhn%3Fsearch.clubid=19756449%26search.menuid=103')
-            self.driver.implicitly_wait(30)
-            self.driver.switch_to_frame('cafe_main')
-            self.driver.find_element_by_id('cmtinput').send_keys('반갑습니다!!^^*.')
-            self.driver.find_element_by_xpath('//*[@id="main-area"]/div[6]/table/tbody/tr[4]/td/table/tbody/tr/td[3]/a/img').click()
-            time.sleep(3)
+    def writeAttendCheck(self):
+        self.driver.get('https://nid.naver.com/nidlogin.login')
+        self.driver.find_element_by_name('id').send_keys('')
+        self.driver.find_element_by_name('pw').send_keys('')
+        self.driver.find_element_by_xpath('//*[@id="frmNIDLogin"]/fieldset/input').click()
+        self.driver.implicitly_wait(30)
+        self.driver.get('http://cafe.naver.com/paramsx?iframe_url=/AttendanceView.nhn%3Fsearch.clubid=19756449%26search.menuid=103')
+        self.driver.implicitly_wait(30)
+        self.driver.switch_to_frame('cafe_main')
+        self.driver.find_element_by_id('cmtinput').send_keys('반갑습니다!!^^*.')
+        self.driver.find_element_by_xpath('//*[@id="main-area"]/div[6]/table/tbody/tr[4]/td/table/tbody/tr/td[3]/a/img').click()
+        time.sleep(3)
 
         #소멸자
-        def __del__(self):
-            #self.driver.close() # 현재 실행 포커스 된 영역을 종료
-            self.driver.quit() #Selenium 전체 프로그램 종료
-            print("Removed drvier Object")
+    def __del__(self):
+        #self.driver.close() # 현재 실행 포커스 된 영역을 종료
+        self.driver.quit() #Selenium 전체 프로그램 종료
+        print("Removed drvier Object")
 
 #실행
 
